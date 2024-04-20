@@ -1,0 +1,67 @@
+;
+; TitanFilterDrv.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = "ActivityMonitor"
+ClassGuid   = {b86dff51-a31e-4bac-b3cf-e8cfe75c9fc2}
+Provider    = %ManufacturerName%
+DriverVer   = 3/28/20024,1.0.0.0
+CatalogFile = TitanFilterDrv.cat
+PnpLockdown = 1
+
+[DestinationDirs]
+DefaultDestDir=12
+MiniFilter.DriverFiles=12
+
+[DefaultInstall]
+OptionDesc=%ServiceDescription%
+CopyFiles=MiniFilter.DriverFiles
+
+
+[DefaultInstall.Services]
+AddService=%ServiceName%,,MiniFilter.Service
+
+[DefaultUninstall]
+DelFiles=MiniFilter.DriverFiles
+
+[DefaultUninstall.Services]
+DelService=MiniFilter,0x200
+
+[MiniFilter.Service]
+DisplayName=%ServiceName%
+Description=%ServiceDescription%
+ServiceBinary=%12%\%DriverName%.sys
+Dependencies="FltMgr"
+ServiceType=2
+StartType=3
+ErrorControl=1
+LoadOrderGroup="TitanFilter"
+AddReg=MiniFilter.AddRegistry
+
+[MiniFilter.DriverFiles]
+%DriverName%.sys
+
+[SourceDisksFiles]
+TitanFilterDrv.sys=1,,
+
+[SourceDisksNames]
+1=%DiskId1%,,,
+
+[MiniFilter.AddRegistry]
+HKR,"Instances","DefaultInstance",0x00000000,%Instance1.Name%
+HKR,"Instances\"%Instance1.Name%,"Altitude",0x00000000,%Instance1.Altitude%
+HKR,"Instances\"%Instance1.Name%,"Flags",0x00010001,%Instance1.Flags%
+
+
+[Strings]
+ManufacturerName="T1t4n4pwn"
+DriverName="TitanFilterDrv"
+ServiceName="TitanService"
+ServiceDescription="Titan Filter Service"
+DiskId1="Titan Filter Device Installation Disk"
+
+Instance1.Name="Test Titan instance"
+Instance1.Altitude="30086"
+Instance1.Flags=0x0

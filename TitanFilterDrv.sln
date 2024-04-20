@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TitanFilterDrv", "TitanFilterDrv\TitanFilterDrv.vcxproj", "{DDE8065F-65C5-43E6-A007-1EF7F2943574}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Project1", "Project1\Project1.vcxproj", "{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Debug|ARM64.Build.0 = Debug|ARM64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Debug|x64.ActiveCfg = Debug|x64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Debug|x64.Build.0 = Debug|x64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Debug|x64.Deploy.0 = Debug|x64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Debug|x86.ActiveCfg = Debug|x64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Debug|x86.Build.0 = Debug|x64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Debug|x86.Deploy.0 = Debug|x64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Release|ARM64.ActiveCfg = Release|ARM64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Release|ARM64.Build.0 = Release|ARM64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Release|ARM64.Deploy.0 = Release|ARM64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Release|x64.ActiveCfg = Release|x64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Release|x64.Build.0 = Release|x64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Release|x64.Deploy.0 = Release|x64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Release|x86.ActiveCfg = Release|x64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Release|x86.Build.0 = Release|x64
+		{DDE8065F-65C5-43E6-A007-1EF7F2943574}.Release|x86.Deploy.0 = Release|x64
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Debug|ARM64.ActiveCfg = Debug|x64
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Debug|ARM64.Build.0 = Debug|x64
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Debug|x64.ActiveCfg = Debug|x64
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Debug|x64.Build.0 = Debug|x64
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Debug|x86.ActiveCfg = Debug|Win32
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Debug|x86.Build.0 = Debug|Win32
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Release|ARM64.ActiveCfg = Release|x64
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Release|ARM64.Build.0 = Release|x64
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Release|x64.ActiveCfg = Release|x64
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Release|x64.Build.0 = Release|x64
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Release|x86.ActiveCfg = Release|Win32
+		{C3405DA7-9BCF-47F3-93FF-E34D270F6C3A}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C9CAF00B-1A2C-4898-99AB-45DAAC7F7F0A}
+	EndGlobalSection
+EndGlobal

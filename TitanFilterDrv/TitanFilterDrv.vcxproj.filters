@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Driver Files">
+      <UniqueIdentifier>{8E41214B-6785-4CFE-B992-037D68949A14}</UniqueIdentifier>
+      <Extensions>inf;inv;inx;mof;mc;</Extensions>
+    </Filter>
+    <Filter Include="TitanFilter">
+      <UniqueIdentifier>{3c858dc0-4ef8-4be4-8078-5601411ff9f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TitanFilter\Utils">
+      <UniqueIdentifier>{18995c9d-5bfb-4540-9420-0b6de78f6c3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TitanFilter\Callbacks">
+      <UniqueIdentifier>{fcbc3fc4-af56-431d-bd0b-63efa6b61590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TitanFilter\Callbacks\Notify">
+      <UniqueIdentifier>{b65f41ed-7d7c-4bb5-9355-03357f06f21d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TitanFilter\Callbacks\Pre">
+      <UniqueIdentifier>{1c893b86-4314-46c5-ba23-54ab7cd240b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TitanFilter\Callbacks\Post">
+      <UniqueIdentifier>{d485cbbb-af3d-44cb-bde3-7c2dc40ac85e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TitanFilter\Utils\Log">
+      <UniqueIdentifier>{32369176-015e-450e-ade9-4a1f72f48040}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TitanFilter\Rule">
+      <UniqueIdentifier>{55d3bbd5-c794-4546-b061-8b7d8672cef5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Inf Include="TitanFilterDrv.inf">
+      <Filter>Driver Files</Filter>
+    </Inf>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.c">
+      <Filter>TitanFilter</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.c">
+      <Filter>TitanFilter\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="NotifyCallback.c">
+      <Filter>TitanFilter\Callbacks\Notify</Filter>
+    </ClCompile>
+    <ClCompile Include="FltPreCallbacks.c">
+      <Filter>TitanFilter\Callbacks\Pre</Filter>
+    </ClCompile>
+    <ClCompile Include="DrvLog.c">
+      <Filter>TitanFilter\Utils\Log</Filter>
+    </ClCompile>
+    <ClCompile Include="FltPostCallBacks.c">
+      <Filter>TitanFilter\Callbacks\Post</Filter>
+    </ClCompile>
+    <ClCompile Include="FltRuleMgr.c">
+      <Filter>TitanFilter\Rule</Filter>
+    </ClCompile>
+    <ClCompile Include="FltUtils.c">
+      <Filter>TitanFilter\Utils</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Main.h">
+      <Filter>TitanFilter</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>TitanFilter\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="NotifyCallback.h">
+      <Filter>TitanFilter\Callbacks\Notify</Filter>
+    </ClInclude>
+    <ClInclude Include="FltPreCallbacks.h">
+      <Filter>TitanFilter\Callbacks\Pre</Filter>
+    </ClInclude>
+    <ClInclude Include="DrvLog.h">
+      <Filter>TitanFilter\Utils\Log</Filter>
+    </ClInclude>
+    <ClInclude Include="FltPostCallBacks.h">
+      <Filter>TitanFilter\Callbacks\Post</Filter>
+    </ClInclude>
+    <ClInclude Include="FltRule.h">
+      <Filter>TitanFilter\Rule</Filter>
+    </ClInclude>
+    <ClInclude Include="FltRuleMgr.h">
+      <Filter>TitanFilter\Rule</Filter>
+    </ClInclude>
+    <ClInclude Include="FltUtils.h">
+      <Filter>TitanFilter\Utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
