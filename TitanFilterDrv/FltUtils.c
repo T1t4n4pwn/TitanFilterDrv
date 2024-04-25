@@ -59,13 +59,13 @@ NTSTATUS GetProcesssNameByFltData(PFLT_CALLBACK_DATA Data, PUNICODE_STRING Proce
 	PEPROCESS pProcess = NULL;
 	pProcess = FltGetRequestorProcess(Data);
 	if (!pProcess) {
-		return FLT_PREOP_SUCCESS_WITH_CALLBACK;
+		return STATUS_INVALID_PARAMETER;
 	}
 
 	PCHAR processName = NULL;
 	processName = PsGetProcessImageFileName(pProcess);
 	if (!processName) {
-		return FLT_PREOP_SUCCESS_WITH_CALLBACK;
+		return STATUS_INVALID_PARAMETER;
 	}
 
 	ANSI_STRING processNameAnsi = { 0 };
