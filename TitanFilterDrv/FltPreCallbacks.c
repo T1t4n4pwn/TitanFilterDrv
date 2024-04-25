@@ -26,13 +26,13 @@ FLT_PREOP_CALLBACK_STATUS FltPreCreate(PFLT_CALLBACK_DATA Data, PCFLT_RELATED_OB
 	wchar_t processNameBuffer[260] = { 0 };
 	
 	RtlInitEmptyUnicodeString(&processName, processNameBuffer, sizeof(processNameBuffer));
-
-	status = GetProcesssNameByFltData(Data, &processName);
-	if (!NT_SUCCESS(status)) {
-		return FLT_PREOP_SUCCESS_WITH_CALLBACK;
-	}
 	
 	__try {
+
+		status = GetProcesssNameByFltData(Data, &processName);
+		if (!NT_SUCCESS(status)) {
+			return FLT_PREOP_SUCCESS_WITH_CALLBACK;
+		}
 
 		status = FltParseFileNameInformation(pFileNameInfo);
 		if (!NT_SUCCESS(status)) {
