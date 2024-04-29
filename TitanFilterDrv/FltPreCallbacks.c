@@ -44,7 +44,7 @@ FLT_PREOP_CALLBACK_STATUS FltPreCreate(PFLT_CALLBACK_DATA Data, PCFLT_RELATED_OB
 
 		RtlInitEmptyUnicodeString(&filePath, filePathBuffer, sizeof(filePathBuffer));
 
-		status = VolumePathToDosPath(FltObjects->Volume, pFileNameInfo, &filePath);
+		status = VolumePathToNtPath(FltObjects, pFileNameInfo, &filePath);
 		if (!NT_SUCCESS(status)) {
 			return FLT_PREOP_SUCCESS_WITH_CALLBACK;
 		}

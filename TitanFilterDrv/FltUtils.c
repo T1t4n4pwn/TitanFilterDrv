@@ -1,55 +1,42 @@
 #include "FltUtils.h"
 
-NTSTATUS VolumePathToDosPath(const PFLT_VOLUME Volume, const PFLT_FILE_NAME_INFORMATION FileInfo, PUNICODE_STRING Output)
+NTSTATUS VolumePathToNtPath(const PCFLT_RELATED_OBJECTS FltObjects, const PFLT_FILE_NAME_INFORMATION FltFileInfo, PUNICODE_STRING Path)
 {
-	UNICODE_STRING dosName = { 0 };
 	NTSTATUS status = STATUS_SUCCESS;
-	PDEVICE_OBJECT diskDeviceObject = NULL;
+
+	UNICODE_STRING dosName = { 0 };
+	wchar_t path_buf[260] = { 0 };
+	PDEVICE_OBJECT pDiskDevObj = { NULL };
+
+	RtlInitEmptyUnicodeString(&dosName, path_buf, sizeof(path_buf));
+
+	status = FltGetDiskDeviceObject(FltObjects->Volume, &pDiskDevObj);
+	if (!NT_SUCCESS(status)) {
+		return status;
+	}
 
 	__try {
-		status = FltGetDiskDeviceObject(Volume, &diskDeviceObject);
+		status = IoVolumeDeviceToDosName(pDiskDevObj, &dosName);
 		if (!NT_SUCCESS(status)) {
 			return status;
 		}
-
-		if (!diskDeviceObject->AttachedDevice) {
-			status =  STATUS_INVALID_DEVICE_OBJECT_PARAMETER;
-			return status;
-		}
-
-		status = IoVolumeDeviceToDosName(diskDeviceObject->AttachedDevice, &dosName);
-		if (!NT_SUCCESS(status)) {
-			return status;
-		}
-
-		size_t remain = FileInfo->Name.Length - FileInfo->Volume.Length;
-		size_t needSize = remain + dosName.Length;
-
-		if (Output->MaximumLength < needSize) {
-			status =  STATUS_BUFFER_TOO_SMALL;
-			return status;
-		}
-
-		wchar_t* target = strstr(FileInfo->Name.Buffer, FileInfo->Volume.Buffer);
-		if (!target) {
-			status =  STATUS_INVALID_PARAMETER_2;
-			return status;
-		}
-
-		RtlCopyMemory(Output->Buffer, dosName.Buffer, dosName.Length);
-		RtlCopyMemory((char*)Output->Buffer + dosName.Length, (char*)target + FileInfo->Volume.Length, remain);
-
-		Output->Length = needSize;
-
 	}
 	__finally {
-		if (dosName.Buffer) {
-			ExFreePool(dosName.Buffer);
-		}
-		if (diskDeviceObject) {
-			ObDereferenceObject(diskDeviceObject);
-		}
+		ObDereferenceObject(pDiskDevObj);
 	}
+
+	size_t need_size = dosName.Length + FltFileInfo->ParentDir.Length + FltFileInfo->FinalComponent.Length;
+
+	if (Path->MaximumLength < need_size) {
+		ExFreePool(dosName.Buffer);
+		return STATUS_BUFFER_TOO_SMALL;
+	}
+
+	RtlAppendUnicodeStringToString(Path, &dosName);
+	RtlAppendUnicodeStringToString(Path, &FltFileInfo->ParentDir);
+	RtlAppendUnicodeStringToString(Path, &FltFileInfo->FinalComponent);
+
+	ExFreePool(dosName.Buffer);
 
 	return status;
 }

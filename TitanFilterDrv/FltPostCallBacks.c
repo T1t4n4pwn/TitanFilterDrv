@@ -49,7 +49,7 @@ FLT_POSTOP_CALLBACK_STATUS FltPostDirectoryControl(PFLT_CALLBACK_DATA Data, PCFL
 
 		RtlInitEmptyUnicodeString(&filePath, filePathBuffer, sizeof(filePathBuffer));
 
-		status = VolumePathToDosPath(FltObjects->Volume, pFileNameInfo, &filePath);
+		status = VolumePathToNtPath(FltObjects, pFileNameInfo, &filePath);
 		if (!NT_SUCCESS(status)) {
 			return FLT_POSTOP_FINISHED_PROCESSING;
 		}
